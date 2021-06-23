@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+    <main>
+        <!--<div class="container">
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid py-5">
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="button" class="btn btn-primary btn-lg">Fulano</button>
+                            <hr>
+                            <button type="button" class="btn btn-primary btn-lg">Beltrano</button>
+                            <hr>
+                            <button type="button" class="btn btn-primary btn-lg">Ciclano</button>
+                        </div>   
+                        <div class="col-8">
+                            <form action="">
+                                <div class="form-group">
+                                  <label for="">Cliente</label>
+                                  <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                                <div class="form-group">
+                                  <label for="">Motivo</label>
+                                  <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                                <div class="form-group">
+                                  <label for="">Valor</label>
+                                  <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Excluir</button>
+                                    <button type="button" class="btn btn-primary">Salvar</button>
+                                  </div>
+                            </form>
+                        </div>  
+                    </div>
+                  
+                </div>
+              </div>
+        </div>-->
+    </main>
+
+    <script>
+    
+        async function gerContent() {
+            try {
+                const response = await fetch('http://localhost:4567/')
+                //console.log(response)
+                const data = await response.json()
+    
+                show(data)
+    
+            } catch (error) {
+                console.log(error)
+            }
+    
+        }
+    
+        gerContent()
+    
+        function show(users) {
+    
+            let output = ''
+    
+            for ( let user of users) {
+                output += `<li>${user.name}</li>`
+            }
+    
+            document.querySelector('main').innerHTML = output
+            document.querySelector('option').innerHTML = output
+        }
+    
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
